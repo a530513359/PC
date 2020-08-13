@@ -106,7 +106,7 @@
           ctx.strokeStyle = this.randomColor(this.lineColorMin, this.lineColorMax)
           ctx.beginPath()
           ctx.moveTo(this.randomNum(0, this.contentWidth), this.randomNum(0, this.contentHeight))
-          ctx.lineTo(this.randomNum(0, this.contentWidth), this.randomNum(0, this.contentHeight))
+          
           ctx.stroke()
         }
       },
