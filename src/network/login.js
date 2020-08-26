@@ -6,7 +6,6 @@ export function WebSreverLogins(params) {
         url: 'logins/WebSreverLogins',
         data: params
     })
-
 }
 export function WebSreverRegisters(params) {
     return ajaxRequest({

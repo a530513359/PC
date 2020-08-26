@@ -10,7 +10,7 @@ const routes = [
   },
   {
     path: '/login',
-    component: () => import('../views/login/Login.vue')
+    component: () => import('../views/invest/Invest.vue'),
   },
   {
     path: '/welcome',
@@ -25,7 +25,7 @@ const routes = [
       },
       {
         path: '/about',
-        component: () => import('../views/about/About.vue')
+        component: () => import('../views/AboutUs/aboutus.vue')
       },
       {
         path: '/information',
@@ -33,7 +33,12 @@ const routes = [
       },
       {
         path: '/invest',
-        component: () => import('../views/about/About.vue')
+        component: () => import('../views/invest/Invest.vue')
+      },
+      {
+        name:"InvestDetails",
+        path: '/InvestDetails',
+        component: () => import('../views/invest/InvestDetails.vue')
       },
       {
         path: '/borrowing',
@@ -42,6 +47,47 @@ const routes = [
       {
         path: '/account',
         component: () => import('../views/about/About.vue')
+      },
+      {
+        path: '/aboutus',
+       
+        children:[
+          {
+            path: '/mag',
+            component: () => import('../views/AboutUs/mag.vue')
+          },
+          {
+            path: '/img',
+            component: () => import('../views/AboutUs/img.vue')
+          },
+          {
+            path: '/news', 
+            component: () => import('../views/AboutUs/news.vue'),
+           
+          },
+          {
+            path: '/news1',
+            component: () => import('../views/AboutUs/news1.vue')
+          },
+          {
+            path: '/com', 
+            component: () => import('../views/AboutUs/communique.vue'),
+           
+          },
+          {
+            path: '/com1', 
+            component: () => import('../views/AboutUs/com1.vue'),
+         
+          },{
+            path: '/contact', 
+            component: () => import('../views/AboutUs/contact.vue'),
+          
+          },
+          
+        ],
+        component: () => import('../views/AboutUs/aboutus.vue')
+        
+        
       }
     ],
     component: () => import('../views/login/Welcome.vue')
@@ -59,14 +105,14 @@ VueRouter.prototype.push = function push(location) {
   return originalPush.call(this, location).catch(err => err)
 }
 
-router.beforeEach((to, from, next) => {
-  if (to.path === "/login") return next();
+// router.beforeEach((to, from, next) => {
+//   if (to.path === "/login") return next();
 
-  const tokenStr = window.sessionStorage.getItem("token");
+//   const tokenStr = window.sessionStorage.getItem("token");
 
-  if (!tokenStr) return next('/login');
+//   if (!tokenStr) return next('/login');
 
-  next();
-})
+//   next();
+// })
 
 export default router
